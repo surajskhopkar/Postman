@@ -1,0 +1,1363 @@
+{
+	"info": {
+		"_postman_id": "2aba0489-fa41-4ed0-b64b-59bd3456dadd",
+		"name": "PhoenixInwarrantyFlow_QCAccept",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FDLoginAPIRequest",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bd5ac3cc-ed34-403e-b92b-e71173e4a2f1",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "816ab4ec-deae-4300-b40c-90c9d686854f",
+						"exec": [
+							"console.log(\"I am in Tests tab\")",
+							"",
+							"var responseBody = pm.response.json();",
+							"",
+							"console.log(responseBody.data.token)",
+							"",
+							"pm.collectionVariables.set(\"fdtoken\", responseBody.data.token)",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "575ed041-bde9-4bd8-bace-b9fc3fe13f14",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "MYHEADER",
+						"value": "{{X}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"iamfd\",\"password\":\"password\"}\n"
+				},
+				"url": {
+					"raw": "http://139.59.91.96:9000/v1/login",
+					"protocol": "http",
+					"host": [
+						"139",
+						"59",
+						"91",
+						"96"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"login"
+					],
+					"query": [
+						{
+							"key": "LOCAL",
+							"value": "{{X}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FDUserDetailsAPIRequest",
+			"id": "c9ea2b30-f22c-4b5c-ba2e-d6b1f3e79132",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{fdtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"1b6-cR2dclq1S8zJDBAsHCDA10lTBi4\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/userdetails"
+			},
+			"response": []
+		},
+		{
+			"name": "FDCountAPIRequest",
+			"id": "0e8ff051-77c7-4c5f-a5af-898200cb0109",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{fdtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"f1-0YV+z3paPXj8PLekzJqdWrMyBnI\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/dashboard/count"
+			},
+			"response": []
+		},
+		{
+			"name": "FDMasterAPIRequest",
+			"id": "ae0f199b-3100-4c90-aa5a-e1c5636239b4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{fdtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Length",
+						"value": "0"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/master"
+			},
+			"response": []
+		},
+		{
+			"name": "FDCreateJobAPIRequest",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b3462bc5-d889-44ef-963e-4095c9aa1a1b",
+						"exec": [
+							"var number = Math.floor(10000000000000 + Math.random() * 9000093939);",
+							"console.log(number)",
+							"",
+							"pm.collectionVariables.set(\"imei\", number)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab4b4624-2755-4ac2-b859-6872b09c2554",
+						"exec": [
+							"var responseBody = pm.response.json();",
+							"",
+							"pm.collectionVariables.set(\"job_id\", responseBody.data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "b25b2a04-9c62-4c66-9b9f-5cf4b8cffc5e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{fdtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mst_service_location_id\": 0,\n    \"mst_platform_id\": 2,\n    \"mst_warrenty_status_id\": 1,\n    \"mst_oem_id\": 2,\n    \"customer\": {\n        \"first_name\": \"Suraj\",\n        \"last_name\": \"Khopkar\",\n        \"mobile_number\": \"4545454545\",\n        \"mobile_number_alt\": \"\",\n        \"email_id\": \"surajkhopkar88@gmail.com\",\n        \"email_id_alt\": \"surajkhopkar88@gmail.com\"\n    },\n    \"customer_address\": {\n        \"flat_number\": \"aaaa\",\n        \"apartment_name\": \"aaaaa\",\n        \"street_name\": \"Rai's Heaven Flat no 807 Aamrai Road near 100 feet road\",\n        \"landmark\": \"aaaaa\",\n        \"area\": \"snsnsn\",\n        \"pincode\": \"421306\",\n        \"country\": \"India\",\n        \"state\": \"Maharashtra\"\n    },\n    \"customer_product\": {\n        \"dop\": \"2023-12-02T18:30:00.000Z\",\n        \"serial_number\": \"{{imei}}\",\n        \"imei1\": \"{{imei}}\",\n        \"imei2\": \"{{imei}}\",\n        \"popurl\": \"2023-12-02T18:30:00.000Z\",\n        \"product_id\": 3,\n        \"mst_model_id\": 3\n    },\n    \"problems\": [\n        {\n            \"id\": 2,\n            \"remark\": \"bad\"\n        }\n    ]\n}"
+				},
+				"url": "http://139.59.91.96:9000/v1/job/create"
+			},
+			"response": []
+		},
+		{
+			"name": "SUPLoginAPIRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "098e6f01-f42a-4fe0-99b1-fc354456ab41",
+						"exec": [
+							"var responseBody = pm.response.json();",
+							"",
+							"console.log(responseBody.data.token)",
+							"",
+							"pm.collectionVariables.set(\"suptoken\", responseBody.data.token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "359affc7-55f6-4147-9f47-0a12f45bdd58",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"iamsup\",\"password\":\"password\"}"
+				},
+				"url": "http://139.59.91.96:9000/v1/login"
+			},
+			"response": []
+		},
+		{
+			"name": "SUPUserDetailsAPIRequest",
+			"id": "22c282eb-6982-4ce1-8123-48244ae655b3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{suptoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"1b6-cR2dclq1S8zJDBAsHCDA10lTBi4\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/userdetails"
+			},
+			"response": []
+		},
+		{
+			"name": "SUPCountAPIRequest",
+			"id": "8d9338d2-6c81-42ad-a07a-337fe39cb159",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{suptoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"f1-b6/wsPR1YEWJtsBZzX/0+iLVn3E\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/dashboard/count"
+			},
+			"response": []
+		},
+		{
+			"name": "SUPPendingAPIRequest",
+			"id": "e6ec4e84-6fb2-437f-95eb-9f3a67375e19",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{suptoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"172e97-xDEJsO+RFBIFJK1EKw5CrENfghg\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/job/pending"
+			},
+			"response": []
+		},
+		{
+			"name": "SUPMappedAPIRequest",
+			"id": "2a50ab9b-53e7-42e0-a877-562d2a80d52d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{suptoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"96a-QCDOgJoxPPuig5MMAin6izUQd7Y\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/engineer/mapped"
+			},
+			"response": []
+		},
+		{
+			"name": "SUPAssignEngineerAPIRequest",
+			"id": "978058f1-bac1-4be3-9ef9-c595fa7b6f2c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{suptoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"job_id\":{{job_id}},\"engineer_id\":2}"
+				},
+				"url": "http://139.59.91.96:9000/v1/engineer/assign"
+			},
+			"response": []
+		},
+		{
+			"name": "EnggLoginAPIRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42c665c6-add6-408d-904c-c2300833bba2",
+						"exec": [
+							"var responseBody = pm.response.json();",
+							"",
+							"console.log(responseBody.data.token)",
+							"",
+							"pm.collectionVariables.set(\"enggtoken\", responseBody.data.token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "bd645f21-1477-4fb9-b574-c34855928c7f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"iameng\",\"password\":\"password\"}"
+				},
+				"url": "http://139.59.91.96:9000/v1/login"
+			},
+			"response": []
+		},
+		{
+			"name": "EnggUserDetailsAPIRequest",
+			"id": "74ca73d9-c592-4272-972e-79977f2c512f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{enggtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"1bc-5jtJRsd0hZILh8Na44eS7Os72ts\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/userdetails"
+			},
+			"response": []
+		},
+		{
+			"name": "EnggCountAPIRequest",
+			"id": "45667bb3-abb1-43f6-9d4c-23b6e28b8db2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{enggtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"fc-S8Xwrj8vI3KoBPxR1fwsN1D9C+o\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/dashboard/count"
+			},
+			"response": []
+		},
+		{
+			"name": "EnggJobsAPIRequest",
+			"id": "6e7b3c01-e327-4e02-a899-9c147423bd80",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{enggtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/engineer/myjobs"
+			},
+			"response": []
+		},
+		{
+			"name": "EnggMasterAPIRequest",
+			"id": "12973ec5-ec92-41f4-92a3-928ecc876464",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{enggtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Length",
+						"value": "0"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/master"
+			},
+			"response": []
+		},
+		{
+			"name": "EnggRepairCompleteAPIRequest",
+			"id": "e5213318-b0a0-4f10-9d91-fb3e3f84c5b8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{enggtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"job_id\":{{job_id}},\"problems\":[{\"id\":2,\"remark\":\"fixed\"}]}"
+				},
+				"url": "http://139.59.91.96:9000/v1/engineer/repaircomplete"
+			},
+			"response": []
+		},
+		{
+			"name": "QCLoginAPIRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c958a5a4-8886-43c7-9715-9728fc5c90a2",
+						"exec": [
+							"var responseBody = pm.response.json();",
+							"",
+							"console.log(responseBody.data.token)",
+							"",
+							"pm.collectionVariables.set(\"qctoken\", responseBody.data.token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "344d64b5-aed5-4831-b484-5e40db6abc1a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"iamqc\",\"password\":\"password\"}"
+				},
+				"url": "http://139.59.91.96:9000/v1/login"
+			},
+			"response": []
+		},
+		{
+			"name": "QCUserDetailsAPIRequest",
+			"id": "37e5b130-f928-47f8-a80e-c3bc3624132d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{qctoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"1b9-gwZ3q4NUFVwjUwUa8wJaXTtaK9Q\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/userdetails"
+			},
+			"response": []
+		},
+		{
+			"name": "QCCountAPIRequest",
+			"id": "3e743bde-310e-413b-9881-cc385463a977",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{qctoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"a4-OIU8CZXCMxy/yThGtpOaeyvdulE\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/dashboard/count"
+			},
+			"response": []
+		},
+		{
+			"name": "QCMasterAPIRequest",
+			"id": "44b877ea-a465-4675-b051-34d325ea3f6f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{qctoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/qc"
+			},
+			"response": []
+		},
+		{
+			"name": "QCAcceptAPIRequest",
+			"id": "01a7ee72-dd25-426a-be2b-b34d16e9a074",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{qctoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"job_id\":{{job_id}}}"
+				},
+				"url": "http://139.59.91.96:9000/v1/qc"
+			},
+			"response": []
+		},
+		{
+			"name": "JobCompletionFDLoginAPIRequest",
+			"id": "4ba41ff0-3583-4d23-9807-2fd30c45b01d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{fdtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"iamfd\",\"password\":\"password\"}"
+				},
+				"url": "http://139.59.91.96:9000/v1/login"
+			},
+			"response": []
+		},
+		{
+			"name": "FDReadyForDeliveryAPIRequest",
+			"id": "371cfeae-239f-4add-a567-7c82964b2f52",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{fdtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"97fd-ia0nPciWsjH8uaY3FOO6GdD2lcU\""
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"url": "http://139.59.91.96:9000/v1/fd/readyfordelivery"
+			},
+			"response": []
+		},
+		{
+			"name": "FDCloseJobAPIRequest",
+			"id": "bab5f4fd-a7e8-473d-a6c9-de00c2ac57ad",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,mr;q=0.8"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{fdtoken}}"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://phoenix.testautomationacademy.in"
+					},
+					{
+						"key": "Referer",
+						"value": "http://phoenix.testautomationacademy.in/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"job_id\":{{job_id}}}"
+				},
+				"url": "http://139.59.91.96:9000/v1/fd/delivertocustomer"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "19900384-7e26-4fe9-8350-7606839d12d6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d0481fa9-21c4-4923-bae1-7bae9de6d492",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "fdtoken",
+			"value": ""
+		},
+		{
+			"key": "imei",
+			"value": ""
+		},
+		{
+			"key": "job_id",
+			"value": ""
+		},
+		{
+			"key": "suptoken",
+			"value": ""
+		},
+		{
+			"key": "enggtoken",
+			"value": ""
+		},
+		{
+			"key": "qctoken",
+			"value": ""
+		}
+	]
+}
