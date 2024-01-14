@@ -81,7 +81,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"username\":\"iamfd\",\"password\":\"password\"}\n"
+					"raw": "{\n    \"username\": \"iamfd\",\n    \"password\": \"password\"\n}"
 				},
 				"url": {
 					"raw": "http://139.59.91.96:9000/v1/login",
